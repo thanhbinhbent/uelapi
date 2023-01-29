@@ -5,8 +5,8 @@
         public int Id { get; set; }
         public string StudentId { get; set; }
         public int CourseId { get; set; }
-        public string Date { get; set; }
-        public int Period { get; set; }
+        public DateTime Date { get; set; }
+        public string Period { get; set; }
         public string Room { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
