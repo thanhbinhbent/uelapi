@@ -5,10 +5,10 @@
 </h1>
 
 <p align="center">
-  <strong>Dự án nghiên cứu khoa học (Trường đại học Kinh tế - Luật)
+  <strong>Dự án nghiên cứu khoa học sinh viên (Trường đại học Kinh tế - Luật)
 </p>
 
-Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại trường Đại học Kinh tế - Luật**][r] Là dự án của nhóm sinh viên khoa Hệ thống thông tin, API này được viết nhằm mục đích thử nghiệm tính năng, dữ liệu hoàn toàn được giả lập (không có thật). Các dữ liệu trả về API nhóm thực hiện như sau
+Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại trường Đại học Kinh tế - Luật**][r] Là dự án của nhóm sinh viên khoa Hệ thống thông tin - UEL, Mã nguồn API này được viết nhằm mục đích thử nghiệm tính năng, dữ liệu hoàn toàn được giả lập (không có thật). Các dữ liệu trả về API nhóm thực hiện như sau
 - Domain:  <a href="https://uel.azurewebsites.net/">https://uel.azurewebsites.net/</a>
 - [**/api/student/**][1] Dữ liệu trả về dạng JSON, hiển thị tất cả sinh viên UEL.
 - [**/api/course**][2] Dữ liệu trả về dạng JSON, hiển thị tất cả khoá học tại UEL.
