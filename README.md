@@ -42,7 +42,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
 Đây là Public API nên mọi cá nhân, dự án đều có thể sử dụng, tham khảo
 
 ## 🎉 Mẫu: Kết quả trả về
-- **/api/student/** 
+- **<a href="https://uel.azurewebsites.net/api/student/">https://uel.azurewebsites.net/api/student/</a>** 
 ```javascript
 [
   {
@@ -70,7 +70,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
   }
 ]
 ```
-- **/api/course** 
+- **<a href="https://uel.azurewebsites.net/api/course/">https://uel.azurewebsites.net/api/course/</a>** 
 ```javascript
 [
   {
@@ -84,7 +84,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
     ""credit"": 2
 }]
 ```
-- **/api/activityscore/{studentId}** 
+- **<a href="https://uel.azurewebsites.net/api/activityscore/K204061426">https://uel.azurewebsites.net/api/activityscore/K204061426</a>** 
 ```javascript
 [
 {
@@ -103,7 +103,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
   }
 ]
 ```
-- **/api/course/{StudentId}** 
+- **<a href="https://uel.azurewebsites.net/api/course/K204061426">https://uel.azurewebsites.net/api/course/K204061426</a>** 
 ```javascript
 [
   {
@@ -117,7 +117,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
   }
 ]
 ```
-- **/api/schedule/{studentId}** 
+- **<a href="https://uel.azurewebsites.net/api/schedule/K204061426">https://uel.azurewebsites.net/api/schedule/K204061426</a>** 
 ```javascript
 [
 {
@@ -133,7 +133,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
   }
 ]
 ```
-- **/api/scoreboard/{studentId}** 
+- **<a href="https://uel.azurewebsites.net/api/scoreboard/K204061426">https://uel.azurewebsites.net/api/scoreboard/K204061426</a>** 
 ```javascript
 [
   {
@@ -154,7 +154,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
   }
 ]
 ```
-- **/api/testschedule/{studentId}** 
+- **<a href="https://uel.azurewebsites.net/api/testschedule/K204061426">https://uel.azurewebsites.net/api/testschedule/K204061426</a>** 
 ```javascript
 [
   {
@@ -170,7 +170,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
   }
 ]
 ```
-- **/api/tuition/{studentId}** 
+- **<a href="https://uel.azurewebsites.net/api/tuition/K204061426">https://uel.azurewebsites.net/api/tuition/K204061426</a>** 
 ```javascript
 [
   {
@@ -184,7 +184,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
   }
 ]
 ```
-- **/api/student/{studentId}** 
+- **<a href="https://uel.azurewebsites.net/api/student/K204061426">https://uel.azurewebsites.net/api/student/K204061426</a>** 
 ```javascript
 {
   "id": "K204061426",
@@ -199,7 +199,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
   "yearAdmission": 2020
 }
 ```
-- **/api/course/{studentId}** 
+- **<a href="https://uel.azurewebsites.net/api/course/K204061426">https://uel.azurewebsites.net/api/course/K204061426</a>** 
 ```javascript
 
 [
