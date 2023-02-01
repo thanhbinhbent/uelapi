@@ -9,7 +9,7 @@
 </p>
 
 Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại trường Đại học Kinh tế - Luật**][r] Là dự án của nhóm sinh viên khoa Hệ thống thông tin, API này được viết nhằm mục đích thử nghiệm tính năng, dữ liệu hoàn toàn được giả lập (không có thật). Các dữ liệu trả về API nhóm thực hiện như sau
-
+- Domain:  <a href="https://uel.azurewebsites.net/">https://uel.azurewebsites.net/</a>
 - [**/api/student/**][1] Dữ liệu trả về dạng JSON, hiển thị tất cả sinh viên UEL.
 - [**/api/course**][2] Dữ liệu trả về dạng JSON, hiển thị tất cả khoá học tại UEL.
 - [**/api/activityscore/{studentId}**][3] Dữ liệu trả về dạng JSON, hiển thị điểm rèn luyện của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
@@ -26,7 +26,7 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
 </h4>
 
 
-
+[r]: https://uel.azurewebsites.net/
 [1]: https://uel.azurewebsites.net/api/student/
 [2]: https://uel.azurewebsites.net/api/course
 [3]: https://uel.azurewebsites.net/api/activityscore/K204060303
