@@ -10,16 +10,15 @@
 
 Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại trường Đại học Kinh tế - Luật**][r] Là dự án của nhóm sinh viên khoa Hệ thống thông tin, API này được viết nhằm mục đích thử nghiệm tính năng, dữ liệu hoàn toàn được giả lập (không có thật). Các dữ liệu trả về API nhóm thực hiện như sau
 
-- [**/api/student/**][s] Dữ liệu trả về dạng JSON, hiển thị tất cả sinh viên UEL.
-- [**/api/course**][s] Dữ liệu trả về dạng JSON, hiển thị tất cả khoá học tại UEL.
-- [**/api/activityscore/{studentId}**][s] Dữ liệu trả về dạng JSON, hiển thị điểm rèn luyện của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
-- [**/api/course/{StudentId}**][s] Dữ liệu trả về dạng JSON, hiển thị danh sách môn học đã đăng ký của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
-- [**/api/schedule/{studentId}**][s] Dữ liệu trả về dạng JSON, hiển thị danh sách thời gian biểu của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
-- [**/api/scoreboard/{studentId}**][s] Dữ liệu trả về dạng JSON, hiển thị danh sách điểm học tập của 1 sinh viên trong tất cả học kỳ cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
-- [**/api/testschedule/{studentId}**][s] Dữ liệu trả về dạng JSON, hiển thị danh sách lịch thi của 1 sinh viên trong tất cả học kỳ cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
-- [**/api/tuition/{studentId}**][s] Dữ liệu trả về dạng JSON, hiển thị danh sách học phí, số tiền đã đóng, cần đóng của 1 sinh viên trong tất cả học kỳ cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
-- [**/api/student/{studentId}**][s] Dữ liệu trả về dạng JSON, hiển thị thông tin cá nhân chi tiết của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
-- [**/api/course/{studentId}**][s] Dữ liệu trả về dạng JSON, hiển thị các thông tin về các môn học của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
+- [**/api/student/**][1] Dữ liệu trả về dạng JSON, hiển thị tất cả sinh viên UEL.
+- [**/api/course**][2] Dữ liệu trả về dạng JSON, hiển thị tất cả khoá học tại UEL.
+- [**/api/activityscore/{studentId}**][3] Dữ liệu trả về dạng JSON, hiển thị điểm rèn luyện của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
+- [**/api/course/{StudentId}**][4] Dữ liệu trả về dạng JSON, hiển thị danh sách môn học đã đăng ký của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
+- [**/api/schedule/{studentId}**][5] Dữ liệu trả về dạng JSON, hiển thị danh sách thời gian biểu của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
+- [**/api/scoreboard/{studentId}**][6] Dữ liệu trả về dạng JSON, hiển thị danh sách điểm học tập của 1 sinh viên trong tất cả học kỳ cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
+- [**/api/testschedule/{studentId}**][7] Dữ liệu trả về dạng JSON, hiển thị danh sách lịch thi của 1 sinh viên trong tất cả học kỳ cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
+- [**/api/tuition/{studentId}**][8] Dữ liệu trả về dạng JSON, hiển thị danh sách học phí, số tiền đã đóng, cần đóng của 1 sinh viên trong tất cả học kỳ cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
+- [**/api/student/{studentId}**][9] Dữ liệu trả về dạng JSON, hiển thị thông tin cá nhân chi tiết của 1 sinh viên cụ thể bằng cách truyền đối số là mã số sinh viên muốn tra cứu.
   <h4 align="center">
   <a href="/">
     ##Lưu ý: {studentId}  là đối số truyền vào
@@ -28,8 +27,15 @@ Dự án [**Phát triển ứng dụng tích hợp dữ liệu sinh viên tại 
 
 
 
-[r]: /
-[s]:/
+[1]: https://uel.azurewebsites.net/api/student/
+[2]: https://uel.azurewebsites.net/api/course
+[3]: https://uel.azurewebsites.net/api/activityscore/K204060303
+[4]: https://uel.azurewebsites.net/api/course/K204060303
+[5]: https://uel.azurewebsites.net/api/schedule/K204060303
+[6]: https://uel.azurewebsites.net/api/scoreboard/K204060303
+[7]: https://uel.azurewebsites.net/api/testschedule/K204060303
+[8]: https://uel.azurewebsites.net/api/tuition/K204060303
+[9]: https://uel.azurewebsites.net/api/student/K204060303
 
 ## 📋 Yêu cầu dự án
 
