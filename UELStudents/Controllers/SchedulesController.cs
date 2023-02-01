@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UELStudents.Models;
+using UELStudents.Data;
 
 namespace UELStudents.Controllers
 {
@@ -8,36 +8,41 @@ namespace UELStudents.Controllers
     [ApiController]
     public class SchedulesController : ControllerBase
     {
-        public static List<Schedule> schedules = new List<Schedule>();
-        [HttpGet]
-        public IActionResult GetAll() // Kết quả trả về lên giao diện
-        {
-            return Ok(schedules); // Thành công sẽ trả về các danh sách
 
-        }
-        [HttpPost]
-        public IActionResult Create(Schedule schedule)
+        private readonly StudentDbContext _context;
+
+        public SchedulesController(StudentDbContext context)
         {
-            var sch = new Schedule()
-            {
-                Id = schedule.Id,
-                StudentId = schedule.StudentId,
-                CourseId = schedule.CourseId,
-                Date = schedule.Date,
-                Period = schedule.Period,
-                Room = schedule.Room,                
-                StartTime = schedule.StartTime,
-                EndTime = schedule.EndTime,
-                TeacherId = schedule.TeacherId,
-                TimeFormat = schedule.TimeFormat,
-            };
-            schedules.Add(sch);
-            return Ok(new
-            {
-                Success = true,
-                Data = schedule
-            });
+            _context = context;
         }
 
+        [HttpGet("/api/schedule/{studentId}")]
+        public IActionResult GetSchedulesByStudentId(string studentId)
+        {
+            var schedules = (from schedule in _context.schedules
+                             join student in _context.students on schedule.StudentId equals student.Id
+                             join course in _context.courses on schedule.CourseId equals course.Id
+                             join teacher in _context.teachers on schedule.TeacherId equals teacher.Id
+                             where student.Id == studentId
+                             select new
+                             {
+                                 StudentId = schedule.StudentId,
+                                 DateTime = schedule.Datetime,
+                                 courseName = course.CourseName,
+                                 Room = schedule.Room,
+                                 teacher.Gender,
+                                 TeacherName = teacher.TeacherName,
+                                 TimeStart = schedule.TimeStart,
+                                 TimeEnd = schedule.TimeEnd,
+                                 TimeFormat = schedule.TimeFormat
+                             }).ToList();
+
+            if (schedules == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(schedules);
+        }
     }
 }

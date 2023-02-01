@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using UELStudents.Data;
 using UELStudents.Models;
 
 namespace UELStudents.Controllers
@@ -8,35 +8,34 @@ namespace UELStudents.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
-        public static List <Student> students = new List<Student> ();
-        [HttpGet]
-        public IActionResult GetAll() // Kết quả trả về lên giao diện
-        {
-            return Ok(students); // Thành công sẽ trả về các danh sách hàng hoá
+        private readonly StudentDbContext _Context;
 
-        }
-        [HttpPost]
-        public IActionResult Create(Student student)
+        public StudentsController(StudentDbContext context)
         {
-            var st = new Student()
+            _Context = context;
+        }
+        //public static List<Course> courses = new List<Course>();
+        [HttpGet("/api/student")]
+        public IActionResult GetAll()
+        {
+            var listStudents = _Context.students.ToList();
+            return Ok(listStudents);
+        }
+        [HttpGet("/api/student/{studentId}")]
+        public IActionResult GetById(string studentId)
+        {
+            var listStudents = _Context.students.SingleOrDefault(list => list.Id == studentId
+            );
+            if (listStudents
+                != null)
             {
-                Id = student.Id,
-                Dob = student.Dob,
-                Email = student.Email,
-                FirstName = student.FirstName,
-                LastName = student.LastName,
-                Major = student.Major,
-                SelfEmail = student.SelfEmail,
-                SelfPhone = student.SelfPhone,
-                Town = student.Town,
-                YearAdmission = student.YearAdmission
-            };
-            students.Add(st);
-            return Ok(new
+                return Ok(listStudents);
+            }
+            else
             {
-                Success = true,
-                Data = student
-            }) ;
+                return NotFound();
+            }
+
         }
         
     }

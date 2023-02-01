@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UELStudents.Models;
+using UELStudents.Data;
 
 namespace UELStudents.Controllers
 {
@@ -8,35 +8,39 @@ namespace UELStudents.Controllers
     [ApiController]
     public class TestSchedulesController : ControllerBase
     {
-        public static List<TestSchedule> tests = new List<TestSchedule>();
-        [HttpGet]
-        public IActionResult GetAll() // Kết quả trả về lên giao diện
-        {
-            return Ok(tests); // Thành công sẽ trả về các danh sách
+        private readonly StudentDbContext _context;
 
-        }
-        [HttpPost]
-        public IActionResult Create(TestSchedule test)
+        public TestSchedulesController(StudentDbContext context)
         {
-            var tst = new TestSchedule()
+            _context = context;
+        }
+
+        [HttpGet("/api/testschedule/{studentId}")]
+        public IActionResult GetTestScheduleByStudentId(string studentId)
+        {
+            var testSchedule = (from schedule in _context.testSchedules
+                                join student in _context.students on schedule.StudentId equals student.Id
+                                join course in _context.courses on schedule.CourseId equals course.Id
+                                where student.Id == studentId
+                                select new
+                                {
+                                    StudentId = studentId,
+                                    course.CourseName,
+                                    course.Credit,
+                                    schedule.Date,
+                                    schedule.Room,
+                                    schedule.Time,
+                                    schedule.EndYear,
+                                    schedule.Semester,
+                                    schedule.StartYear
+                                }).ToList();
+
+            if (testSchedule == null)
             {
-                Id = test.Id,
-                StudentId = test.StudentId,
-                CourseId = test.CourseId,
-                CourseName = test.CourseName,
-                ExamDate = test.ExamDate,
-                ExamTime = test.ExamTime,
-                Location = test.Location,
-                Semester = test.Semester,
-                StartYear = test.StartYear,
-                EndYear = test.EndYear
-            };
-            tests.Add(tst);
-            return Ok(new
-            {
-                Success = true,
-                Data = test
-            });
+                return NotFound();
+            }
+
+            return Ok(testSchedule);
         }
     }
 }

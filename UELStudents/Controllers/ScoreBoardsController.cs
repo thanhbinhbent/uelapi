@@ -1,39 +1,52 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UELStudents.Models;
+using UELStudents.Data;
 
 namespace UELStudents.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ScoreBoardsController : ControllerBase
+    public class ScoreboardsController : ControllerBase
     {
-        public static List<ScoreBoard> scores = new List<ScoreBoard>();
-        [HttpGet]
-        public IActionResult GetAll() // Kết quả trả về lên giao diện
-        {
-            return Ok(scores); // Thành công sẽ trả về các danh sách
 
-        }
-        [HttpPost]
-        public IActionResult Create(ScoreBoard score)
+        private readonly StudentDbContext _context;
+
+        public ScoreboardsController(StudentDbContext context)
         {
-            var sc = new ScoreBoard()
+            _context = context;
+        }
+
+        [HttpGet("/api/scoreboard/{studentId}")]
+        public IActionResult GetScoreboardByStudentId(string studentId)
+        {
+            var scoreboard = (from score in _context.scores
+                              join student in _context.students on score.StudentId equals student.Id
+                              join course in _context.courses on score.CourseId equals course.Id
+                              where student.Id == studentId
+                              select new
+                              {
+                                  StudentId = score.StudentId,
+                                  courseName = course.CourseName,
+                                  score.Attendence,
+                                  score.Midterm,
+                                  score.Final,
+                                  score.Advanced,
+                                  score.PercentAttendence,
+                                  score.PercentMidterm,
+                                  score.PercentFinal,
+                                  score.PercentAdvanced,
+                                  score.StartYear,
+                                  score.EndYear,
+                                  score.Semester,
+                                  course.Credit
+                              }).ToList();
+
+            if (scoreboard == null)
             {
-                Id = score.Id,
-                StudentId = score.StudentId,
-                CourseId = score.CourseId,
-                Attendance = score.Attendance,
-                Midterm = score.Midterm,
-                Final = score.Final,
-                Advanced = score.Advanced
-            };
-            scores.Add(sc);
-            return Ok(new
-            {
-                Success = true,
-                Data = score
-            });
+                return NotFound();
+            }
+
+            return Ok(scoreboard);
         }
     }
 }

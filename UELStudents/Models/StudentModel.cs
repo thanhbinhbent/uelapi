@@ -1,6 +1,6 @@
 ﻿namespace UELStudents.Models
 {
-    public class Student
+    public class StudentModel
     {
         public string Id { get; set; }
         public string Dob { get; set; }
